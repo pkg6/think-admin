@@ -1,0 +1,56 @@
+<div class="admin-body animated fadeIn">
+    <form class="layui-form admin-search-area input">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label for="username" class="layui-form-label">用户名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="username" autocomplete="off"
+                           id="username" class="layui-input">
+                </div>
+
+                <label for="email" class="layui-form-label">邮箱</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="email" autocomplete="off" id="email" class="layui-input">
+                </div>
+
+
+                <label for="status" class="layui-form-label">状态</label>
+                <div class="layui-input-inline">
+                    <select name="status" id="status">
+                        <option value="">请选择</option>
+                        <option value="1">正常</option>
+                        <option value="0">锁定</option>
+                    </select>
+                </div>
+
+                <button lay-submit="" lay-filter="search" class="layui-btn layui-btn-sm layui-btn-primary table-action">
+                    <i class="layui-icon layui-icon-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <table class="layui-hide" id="layui-table"></table>
+</div>
+
+<script type="text/html" id="toolbar">
+    <button class="layui-btn layui-btn-sm" lay-event="adds" lay-url="/admin/user/add" lay-title="添加用户">添加</button>
+</script>
+
+<script type="text/html" id="column-toolbar">
+    <button type="button" class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit" lay-url="/admin/user/edit" lay-title="编辑用户">
+        <i class="layui-icon layui-icon-edit" title="编辑"></i>编辑
+    </button>
+    <button type="button" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete" lay-url="/admin/user/delete">
+        <i class="layui-icon layui-icon-delete" title="删除"></i>删除
+    </button>
+</script>
+
+
+<script type="text/html" id="statusTpl">
+    <input type="checkbox" name="status" value="{{d.userId}}" lay-skin="switch" lay-text="正常|锁定" lay-filter="status" {{ d.status == '1' ? 'checked' : '' }}>
+</script>
+
+
+
+{include file="common/layui" /}

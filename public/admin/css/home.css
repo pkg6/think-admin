@@ -1,0 +1,765 @@
+[template] {
+    display: none
+}
+
+[lay-href] {
+    cursor: pointer
+}
+
+* {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+body {
+    color: #595959;
+    background-color: #f0f2f5;
+
+}
+
+.layui-body {
+    left: 0;
+
+}
+
+.layui-layout-body {
+    overflow: auto;
+
+}
+
+
+.layui-fluid {
+    padding: 14px;
+}
+
+
+/** side hover 进入动画 */
+.ew-anim-drop-in {
+    -webkit-animation: ewTransitionDropIn .3s ease-in-out;
+    animation: ewTransitionDropIn .3s ease-in-out;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0
+}
+
+@-webkit-keyframes ewTransitionDropIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(.8)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes ewTransitionDropIn {
+    from {
+        opacity: 0;
+        transform: scale(.8)
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+/** layui nav tree */
+.layui-nav-tree .layui-nav-bar {
+    display: none
+}
+
+.layui-nav-tree > .layui-nav-item > a:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 100%;
+    width: 3px;
+    background-color: #009688;
+    transition: all .3s ease
+}
+
+.layui-nav-tree > .layui-nav-item:hover > a:before {
+    bottom: 0
+}
+
+.layui-nav-tree .layui-nav-item a:hover {
+    background-color: transparent
+}
+
+.layui-nav-tree .layui-nav-child dd.layui-this,
+.layui-nav-tree .layui-this {
+    background: 0 0
+}
+
+.layui-nav-tree .layui-nav-item .layui-nav-child {
+    padding: 5px 0;
+    background-color: rgba(0, 0, 0, .3) !important
+}
+
+.layui-nav-tree .layui-nav-itemed > .layui-nav-child {
+    display: none
+}
+
+/** 小三角改箭头 */
+.layui-nav-tree.arrow1 .layui-nav-more {
+    font-family: layui-icon !important;
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    line-height: normal;
+    border: none;
+    margin: -3px 0 0 0;
+    padding: 0;
+    width: 10px;
+    height: 6px;
+    top: 50%;
+    display: inline-block;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.layui-nav-tree.arrow1 .layui-nav-more:before {
+    content: "\e61a";
+    position: absolute;
+    right: -1px;
+    top: -4px
+}
+
+.layui-nav-tree.arrow1 .layui-nav-itemed > a > .layui-nav-more {
+    -ms-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg)
+}
+
+/** 小三角改加减号 */
+.layui-nav-tree.arrow2 .layui-nav-more {
+    font-family: layui-icon !important;
+    font-size: 12px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    line-height: normal;
+    border: none;
+    margin: -5px 0 0 0;
+    padding: 0;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    display: inline-block;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.layui-nav-tree.arrow2 .layui-nav-more:before {
+    content: "\e654";
+    position: absolute;
+    top: -2px;
+    left: -1px
+}
+
+.layui-nav-tree.arrow2 .layui-nav-itemed > a > .layui-nav-more {
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+.layui-nav-tree.arrow2 .layui-nav-itemed > a > .layui-nav-more:before {
+    content: '';
+    width: 8px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, .7);
+    top: 4px;
+    left: 1px;
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+
+
+.layui-anim-rl {
+    -webkit-animation-name: layui-rl;
+    animation-name: layui-rl
+}
+
+@-webkit-keyframes layui-rl {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0)
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes layui-rl {
+    from {
+        transform: translate3d(100%, 0, 0)
+    }
+
+    to {
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+.layui-anim-lr,
+.layui-anim-rl.layer-anim-close {
+    -webkit-animation-name: layui-lr;
+    animation-name: layui-lr
+}
+
+@-webkit-keyframes layui-lr {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+
+    to {
+        -webkit-transform: translate3d(100%, 0, 0);
+        opacity: 1
+    }
+}
+
+@keyframes layui-lr {
+    from {
+        transform: translate3d(0, 0, 0)
+    }
+
+    to {
+        transform: translate3d(100%, 0, 0)
+    }
+}
+
+
+/** msg样式 */
+body .layui-layer-msg {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1)
+}
+
+body .layui-layer-load {
+    background: 0 0
+}
+
+/** loading */
+.page-loading {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 19891017;
+    background-color: #fff
+}
+
+body > .page-loading {
+    position: fixed;
+    background-color: #f5f7f9
+}
+
+.layui-layout-admin > .layui-body > .layui-tab > .layui-tab-content > .layui-tab-item > .page-loading,
+.layui-layout-admin > .layui-body > .page-loading {
+    background-color: #f5f7f9
+}
+
+.layui-layout-admin > .layui-body > .layui-body-header.show + div + .page-loading {
+    top: 45px;
+    height: auto
+}
+
+.page-no-scroll {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 80px
+}
+
+.ball-loader,
+.rubik-loader,
+.signal-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.ball-loader > span,
+.signal-loader > span {
+    background-color: #4aca85;
+    display: inline-block
+}
+
+.ball-loader.sm > span:nth-child(1),
+.ball-loader > span:nth-child(1),
+.signal-loader.sm > span:nth-child(1),
+.signal-loader > span:nth-child(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.ball-loader.sm > span:nth-child(2),
+.ball-loader > span:nth-child(2),
+.signal-loader.sm > span:nth-child(2),
+.signal-loader > span:nth-child(2) {
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s
+}
+
+.ball-loader.sm > span:nth-child(3),
+.ball-loader > span:nth-child(3),
+.signal-loader.sm > span:nth-child(3),
+.signal-loader > span:nth-child(3) {
+    -webkit-animation-delay: .15s;
+    animation-delay: .15s
+}
+
+.ball-loader.sm > span:nth-child(4),
+.ball-loader > span:nth-child(4),
+.signal-loader.sm > span:nth-child(4),
+.signal-loader > span:nth-child(4) {
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s
+}
+
+/** 魔方loading */
+.rubik-loader {
+    width: 64px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain
+}
+
+.rubik-loader.sm {
+    width: 50px;
+    height: 50px
+}
+
+/** 球形loading */
+.ball-loader > span {
+    width: 20px;
+    height: 20px;
+    margin: 0 3px;
+    border-radius: 50%;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation: 1s ball-load ease-in-out infinite;
+    animation: ball-load 1s ease-in-out infinite
+}
+
+@-webkit-keyframes ball-load {
+    0% {
+        -webkit-transform: scale(0)
+    }
+
+    50% {
+        -webkit-transform: scale(1)
+    }
+
+    100% {
+        -webkit-transform: scale(0)
+    }
+}
+
+@keyframes ball-load {
+    0% {
+        transform: scale(0)
+    }
+
+    50% {
+        transform: scale(1)
+    }
+
+    100% {
+        transform: scale(0)
+    }
+}
+
+.ball-loader.sm > span {
+    width: 15px;
+    height: 15px;
+    margin: 0 2px
+}
+
+/** 信号loading */
+.signal-loader {
+    width: 50px;
+    height: 22px
+}
+
+.signal-loader > span {
+    width: 8px;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    -webkit-animation: signal-load 1s infinite;
+    animation: signal-load 1s infinite
+}
+
+.signal-loader > span:nth-child(2) {
+    left: 14px
+}
+
+.signal-loader > span:nth-child(3) {
+    left: 28px
+}
+
+.signal-loader > span:nth-child(4) {
+    left: 42px
+}
+
+@-webkit-keyframes signal-load {
+    0% {
+        height: 0
+    }
+
+    50% {
+        height: 22px
+    }
+
+    100% {
+        height: 0
+    }
+}
+
+@keyframes signal-load {
+    0% {
+        height: 0
+    }
+
+    50% {
+        height: 22px
+    }
+
+    100% {
+        height: 0
+    }
+}
+
+/** 信号loading小型 */
+.signal-loader.sm {
+    width: 32px;
+    height: 15px
+}
+
+.signal-loader.sm > span {
+    width: 5px;
+    -webkit-animation: signal-load-sm 1s infinite;
+    animation: signal-load-sm 1s infinite
+}
+
+.signal-loader.sm > span:nth-child(2) {
+    left: 9px
+}
+
+.signal-loader.sm > span:nth-child(3) {
+    left: 18px
+}
+
+.signal-loader.sm > span:nth-child(4) {
+    left: 27px
+}
+
+@-webkit-keyframes signal-load-sm {
+    0% {
+        height: 0
+    }
+
+    50% {
+        height: 15px
+    }
+
+    100% {
+        height: 0
+    }
+}
+
+@keyframes signal-load-sm {
+    0% {
+        height: 0
+    }
+
+    50% {
+        height: 15px
+    }
+
+    100% {
+        height: 0
+    }
+}
+
+/** 组件样式 */
+/** toolbar */
+.layui-form.toolbar .layui-form-item {
+    margin-bottom: 0
+}
+
+.layui-card-body > .layui-table,
+.toolbar + .layui-table {
+    margin: 2px 0
+}
+
+.layui-card-body > .layui-table-view,
+.toolbar + table + .ew-tree-table,
+.toolbar + table + .layui-table-view {
+    margin: 0
+}
+
+.mr0 {
+    margin-right: 0 !important
+}
+
+.w-auto {
+    width: auto
+}
+
+@media screen and (max-width: 450px) {
+    .layui-form-item .w-auto + .layui-input-inline {
+        margin-left: 100px
+    }
+
+    .layui-form-item .layui-inline {
+        margin-bottom: 8px
+    }
+}
+
+/** form */
+.model-form {
+    padding: 20px 30px 0 0
+}
+
+.model-form.no-padding {
+    padding: 0
+}
+
+.model-form .model-form-body {
+    overflow-y: auto;
+    padding: 25px 30px 0 0;
+    max-height: calc(100vh - 180px)
+}
+
+.model-form.no-padding .model-form-footer {
+    padding-top: 10px;
+    padding-right: 30px
+}
+
+.layui-form.model-form > .layui-form-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 20px
+}
+
+.layui-form-required:before {
+    content: "*";
+    display: inline-block;
+    font-family: SimSun;
+    margin-right: 4px;
+    font-size: 14px;
+    line-height: 1;
+    color: #ed4014
+}
+
+.layui-input,
+.layui-textarea {
+    color: #595959
+}
+
+.layui-input[type=number] {
+    line-height: 38px
+}
+
+.layui-form-select .layui-input {
+    padding-right: 0
+}
+
+.layui-form-select-top .layui-form-select > dl {
+    top: auto;
+    bottom: 42px
+}
+
+/** button */
+.layui-btn-primary {
+    color: #595959;
+    border-color: #e6e6e6
+}
+
+.layui-btn-group .layui-btn-primary:first-child {
+    border-left: 1px solid #e6e6e6
+}
+
+.layui-btn-group .layui-btn-primary:hover,
+.layui-btn-primary:hover {
+    color: #262626;
+    border-color: #c9c9c9
+}
+
+.layui-btn {
+    -webkit-transition: background-color .2s;
+    transition: background-color .2s
+}
+
+/** 圆形按钮 */
+.btn-circle {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background: #009688;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+    cursor: pointer
+}
+
+.btn-circle:hover {
+    color: #fff;
+    opacity: .8
+}
+
+.btn-circle .layui-icon {
+    font-size: 24px
+}
+
+/** 组件加图标 */
+.date-icon,
+.icon-date {
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 28px
+}
+
+.icon-search {
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 26px
+}
+
+a.icon-text > .layui-icon,
+span.icon-text > .layui-icon {
+    font-size: 14px;
+    margin-left: 2px
+}
+
+.icon-btn {
+    padding: 0 10px
+}
+
+/** 辅助样式 */
+.bg-white,
+html.bg-white > body {
+    background-color: #fff
+}
+
+[ew-href],
+[lay-tips] {
+    cursor: pointer
+}
+
+.inline-block {
+    display: inline-block
+}
+
+.pull-right {
+    float: right
+}
+
+.pull-left {
+    float: left
+}
+
+.text-left {
+    text-align: left
+}
+
+.text-center {
+    text-align: center
+}
+
+.text-right {
+    text-align: right
+}
+
+.layui-link,
+.text-primary {
+    color: #009688 !important
+}
+
+.text-success {
+    color: #5fb878 !important
+}
+
+.text-warning {
+    color: #ffb800 !important
+}
+
+.text-danger {
+    color: #ff5722 !important
+}
+
+.text-info {
+    color: #01aaed !important
+}
+
+.text-muted {
+    color: #c2c2c2 !important
+}
+
+.layui-text a:not(.layui-btn) {
+    color: #2d8cf0;
+    cursor: pointer
+}
+
+.layui-text a:not(.layui-btn):hover {
+    text-decoration: none
+}
+
+.ew-console-wrapper .layui-card {
+    box-shadow: none;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.layui-card-header {
+    color: #595959;
+    border-bottom: none;
+}
+
+.lay-big-font {
+    font-size: 30px;
+    line-height: 36px;
+    padding: 10px 0px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, .85);
+}
+
+/** 隐藏滚动条 */
+.no-scrollbar {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important
+}
+

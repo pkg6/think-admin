@@ -1,0 +1,11 @@
+<!-- layui JS -->
+<script src="{:asset_admin('layui/layui.js')}"></script>
+<!--全局配置layui封装的模块-->
+<script>
+    layui.config({
+        debug: false,
+        base: "{:asset_admin('/layui/modules/')}"
+    })
+</script>
+
+{:loader_admin_module_js()}

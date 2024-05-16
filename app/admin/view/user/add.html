@@ -1,0 +1,51 @@
+<div class="admin-body animated fadeIn">
+    <form action="{$form_action}" method="post" class="layui-form layui-form-pane">
+        <div class="layui-form-item">
+            <label for="username" class="layui-form-label">
+                用户名
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="username" name="username" value=""
+                       lay-verify="required" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="email" class="layui-form-label">
+                邮箱
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="email" name="email" value=""
+                       lay-verify="required|email" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="mobile" class="layui-form-label">
+                手机号
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="mobile" name="mobile" value=""
+                       lay-verify="required|mobile" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="password" class="layui-form-label">
+                用户密码
+            </label>
+            <div class="layui-input-block">
+                <input type="password" id="password" name="password"
+                       lay-verify="required" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        {include file="components/form_radio" title="$form_radio_status.title" radios="$form_radio_status.radios" /}
+
+        {include file="components/form_submit" event= "add-data" /}
+    </form>
+</div>
+
+
