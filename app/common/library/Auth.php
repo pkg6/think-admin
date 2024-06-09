@@ -53,11 +53,7 @@ class Auth
     public function __construct(App $app)
     {
         $this->app  = $app;
-        $name       = $this->app->config->get("admin.auth.name", "tp_admin");
-        $table      = $this->app->config->get("admin.auth.model", Admin::class);
-        $this->auth = auth()
-            ->setConfigGuardProvider($name, $table)
-            ->guard($name);
+        $this->auth = auth()->guard('admin');
 
     }
 
@@ -124,7 +120,7 @@ class Auth
         }
         //判断是否同一时间同一账号只能在一个地方登录
         if ($this->app->config->get("admin.login_unique", false)) {
-            if ($my->session_token != $admin["session_token"]) {
+            if ($my->session_id != $admin["session_id"]) {
                 $this->logout();
 
                 return false;
@@ -217,9 +213,9 @@ class Auth
         $admin->logintime    = time();
         if (method_exists($admin, "createToken")) {
             $token                = $admin->createToken("session");
-            $admin->session_token = $token->plainTextToken;
+            $admin->session_id = $token->plainTextToken;
         } else {
-            $admin->session_token = Uuid::uuid4()->toString();
+            $admin->session_id = Uuid::uuid4()->toString();
         }
         $admin->loginip = request()->ip();
         $admin->save();

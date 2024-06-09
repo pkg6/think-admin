@@ -12,6 +12,7 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
+
 return [
 
     /*
@@ -59,6 +60,10 @@ return [
             // Set the membership validity period to 24 hours
             //"remember" => 24 * 3600
         ],
+        'admin'=>[
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
         "token" => [
             'driver' => 'token',
             'provider' => 'user',
@@ -91,6 +96,10 @@ return [
             'driver' => 'model', //eloquent
             'model' => \tp5er\think\auth\User::class,
         ],
+        'admin'=>[
+            'driver' => 'model', //eloquent
+            'model' => \app\common\model\Admin::class,
+        ]
         //'user' => [
         //    'driver' => 'database',
         //    'table' => 'user',

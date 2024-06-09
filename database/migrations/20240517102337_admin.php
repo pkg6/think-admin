@@ -38,7 +38,7 @@ class Admin extends Migrator
             ->addColumn('loginfailure', 'integer', ['limit' => 1, 'default' => 0, 'comment' => '失败次数'])
             ->addColumn('logintime', 'integer', ['limit' => 32, 'default' => 0, 'comment' => '登录时间'])
             ->addColumn('loginip', 'string', ['limit' => 11, 'default' => "", 'comment' => '最后登录IP'])
-            ->addColumn('session_token', 'string', ['limit' => 255, 'default' => "", 'comment' => 'Session标识'])
+            ->addColumn('session_id', 'string', ['limit' => 255, 'default' => "", 'comment' => 'Session标识'])
             ->addColumn('remember_token', 'string', ['limit' => 255, 'default' => "", 'comment' => '记住token标识'])
             ->addColumn('status', 'integer', ['limit' => 8, 'default' => 1, 'comment' => '状态：0冻结 1正常'])
             ->addColumn('create_time', 'integer', ['null' => false, 'default' => 0, 'timezone' => false,])

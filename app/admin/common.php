@@ -54,7 +54,6 @@ if (!function_exists('think_admin_info_change')) {
 }
 
 
-
 if (!function_exists('asset_admin')) {
 
     /**
@@ -67,11 +66,11 @@ if (!function_exists('asset_admin')) {
     function asset_admin($asset)
     {
         $path = app()->config->get("admin.assets_path", "/admin");
-        if (Str::startsWith($asset, "/")) {
+        if (Str::startsWith($asset, DIRECTORY_SEPARATOR)) {
             return $path . $asset;
         }
 
-        return $path . "/" . $asset;
+        return $path . DIRECTORY_SEPARATOR . $asset;
     }
 }
 
@@ -87,7 +86,9 @@ if (!function_exists('loader_admin_module_js')) {
     {
         $currentController = app()->request->controller();
         $currentAction     = app()->request->action();
-        $module_js_path    = 'module/' . Str::snake($currentController) . "/" . Str::snake($currentAction) . '.js';
+        $module_js_path    = 'module' .
+            DIRECTORY_SEPARATOR . Str::snake($currentController) .
+            DIRECTORY_SEPARATOR . Str::snake($currentAction) . '.js';
         $file              = asset_admin($module_js_path);
         $localPath         = app()->getRootPath() . 'public' . $file;
 

@@ -8,7 +8,6 @@ layui.define(["element", "layer",'think'], function (exports) {
     var rememberTab = true;
     var tabList = [];
     var tabsSelector = ".layui-pagetabs .layui-tab-title li[lay-id]";
-
     var admin = {
         tabAdd: function (o) {
             var id = o.id;
@@ -54,7 +53,6 @@ layui.define(["element", "layer",'think'], function (exports) {
         },
         flexible: function () {
             if (window.lock) {
-                $("#message").show();
                 window.lock = false;
                 return;
             }
@@ -64,7 +62,6 @@ layui.define(["element", "layer",'think'], function (exports) {
                 $(".layui-nav-item i").css("left", 25)
                 elem.removeClass("admin-nav-mini");
             } else {
-                $("#message").hide();
                 $(".layui-nav-item i").css("left", 20)
                 elem.addClass("admin-nav-mini");
             }
@@ -205,6 +202,7 @@ layui.define(["element", "layer",'think'], function (exports) {
 
     // 页面加载完后, 打开存储的标签卡.
     $(document).ready(function () {
+        console.log(1)
         if (rememberTab) {
             var tabs = JSON.parse(sessionStorage.getItem("tabs"));
             var currentTabId = sessionStorage.getItem("currentTabId");
