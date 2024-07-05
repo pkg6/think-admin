@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>think-admin</title>
+
+    {include file="common/meta" /}
+
+    <!-- think-admin核心样式 -->
+    <link rel="stylesheet" href="{:asset_admin('css/admin.css')}">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="{:asset_admin('css/common.css')}">
+    <!-- 图标 -->
+    <link rel="stylesheet" href="{:asset_admin('remixicon/fonts/remixicon.css')}">
+
+    <!-- 首页样式（只为此页面使用） -->
+    <link rel="stylesheet" href="{:asset_admin('css/index.css')}">
+</head>
+
+<body class="layui-layout-body">
+
+<div class="layui-layout layui-layout-admin">
+
+    <div class="layui-header">
+        <!-- logo 区域 -->
+        <div class="layui-logo">
+            <cite>think-admin</cite>
+        </div>
+
+        <!-- 头部区域 -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item" lay-unselect>
+                <a lay-event="flexible" title="侧边伸缩">
+                    <i class="layui-icon layui-icon-shrink-right"></i>
+                </a>
+            </li>
+            <!-- 面包屑 -->
+            <span class="layui-breadcrumb layui-anim layui-anim-up">
+                <a><cite>首页</cite></a>
+            </span>
+        </ul>
+
+        <!-- 头像区域 -->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item feature-items">
+                <a href="https://github.com/pkg6/think-admin" target="_blank">
+                    <i class="ri-github-fill"></i>
+                </a>
+            </li>
+
+            <li class="layui-nav-item feature-items">
+                <a lay-event="clear" title="清理标签缓存"><i class="ri-brush-3-line"></i></a>
+            </li>
+
+            <li class="layui-nav-item feature-items">
+                <a id="screenFull" lay-event="screenFull" title="全屏">
+                    <i class="ri-fullscreen-line"></i>
+                </a>
+                <a id="screenRestore" lay-event="screenRestore" title="退出全屏" style="display: none;">
+                    <i class="ri-fullscreen-exit-line"></i>
+                </a>
+            </li>
+
+            <li class="layui-nav-item user-selection">
+                <a>
+                    <cite>{$admin.username}</cite>
+                    <span class="layui-nav-more"></span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd lay-unselect>
+                        <a lay-event="logout">退出</a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 左侧导航区域 -->
+    <div class="layui-side ">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="lay-nav" lay-accordion="true">
+                <li class="layui-nav-item">
+                    <a lay-url="{:url('admin/home/index')}" lay-id="{:url('admin/home/index')}">
+                        <i class="ri-home-8-line"></i>&emsp;<cite>首页</cite>
+                    </a>
+                </li>
+
+                <li class="layui-nav-item">
+                    <a>
+                        <i class="ri-shield-keyhole-line"></i>&emsp;<cite>权限管理</cite>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a lay-id="{:url('admin/user/index')}" lay-url="{:url('admin/user/index')}">
+                                <cite>用户管理</cite>
+                            </a>
+                        </dd>
+                        <dd>
+                            <a lay-id="{:url('admin/group/index')}" lay-url="{:url('admin/group/index')}">
+                                <cite>角色组</cite>
+                            </a>
+                        </dd>
+                        <dd>
+                            <a lay-id="{:url('admin/rule/index')}" lay-url="{:url('admin/rule/index')}">
+                                <cite>菜单规则</cite>
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+
+                {$menu|raw}
+
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <div class="layui-pagetabs">
+            <div class="layui-icon admin-tabs-control layui-icon-refresh-3" lay-event="refresh"></div>
+            <div class="layui-tab" lay-unauto lay-allowclose="true" lay-filter="lay-tab">
+                <ul class="layui-tab-title">
+                    <li lay-id="home" lay-url="{:url('admin/home/index')}" class="layui-this">
+                        <i class="ri-home-8-line ri-xl"></i>
+                    </li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <iframe src="{:url('admin/home/index')}" class="layui-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部固定区域 -->
+    <div class="layui-footer">
+        copyright © 2020 think-admin all rights reserved.
+    </div>
+
+    <!-- 移动端遮罩 -->
+    <div class="site-mobile-shade"></div>
+</div>
+<!-- layui JS -->
+{include file="common/layui" /}
+</body>
+</html>

@@ -1,0 +1,22 @@
+<div class="admin-body animated fadeIn">
+    <form action="{$form_action}" method="post" class="layui-form layui-form-pane">
+
+        {include file="components/form_pid" /}
+
+        <div class="layui-form-item">
+            <label for="name" class="layui-form-label">
+                名称
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="name" name="name" value="" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        {include file="components/form_radio" title="$form_radio_status.title" radios="$form_radio_status.radios" /}
+
+        {include file="components/form_submit" event= "add-data" /}
+    </form>
+</div>
+
+{include file="common/layui" /}

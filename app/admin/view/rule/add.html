@@ -1,0 +1,76 @@
+<div class="admin-body animated fadeIn">
+    <form action="{$form_action}" method="post" class="layui-form layui-form-pane">
+
+        {include file="components/form_pid" /}
+
+        <div class="layui-form-item">
+            <label for="name" class="layui-form-label">
+                节点名称
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="name" name="name" value="" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="icon" class="layui-form-label">
+                icon
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="icon" name="icon" value="" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label for="url" class="layui-form-label">
+                规则URL
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="url" name="url" value="" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="condition" class="layui-form-label">
+                条件限制
+            </label>
+            <div class="layui-input-inline layui-input-wrap">
+                <input type="text" id="condition" name="condition" value="" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-text-em">URL条件限制: exp: id=1&name=2</div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                类型
+            </label>
+            <div class="layui-input-block">
+                <input type="radio" name="type" value="1" title="启用" checked>
+                <input type="radio" name="type" value="0" title="禁用">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="remark" class="layui-form-label">
+                备注
+            </label>
+            <div class="layui-input-block">
+                <input type="text" id="remark" name="remark" value="" lay-vertype="tips"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+
+        {include file="components/form_radio" title="$form_radio_status.title" radios="$form_radio_status.radios" /}
+
+        {include file="components/form_submit" event= "add-data" /}
+    </form>
+</div>
+
+{include file="common/layui" /}

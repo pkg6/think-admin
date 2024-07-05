@@ -1,0 +1,31 @@
+<div class="admin-body animated fadeIn">
+    <table class="layui-hide" id="layui-tree-table"></table>
+</div>
+
+<script type="text/html" id="toolbar">
+    <button class="layui-btn layui-btn-sm" lay-event="adds" lay-url="/admin/group/add" lay-title="添加角色组">添加</button>
+</script>
+
+<script type="text/html" id="column-toolbar">
+    <button type="button" class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit" lay-url="/admin/group/edit"
+            lay-title="编辑角色组">
+        <i class="layui-icon layui-icon-edit" title="编辑"></i>编辑
+    </button>
+
+    <button type="button" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete"
+            lay-url="/admin/group/delete">
+        <i class="layui-icon layui-icon-delete" title="删除"></i>删除
+    </button>
+</script>
+
+<script type="text/html" id="status_tpl">
+    <input type="checkbox" name="status" value="{{d.userId}}"
+           lay-skin="switch" lay-text="正常|锁定" lay-filter="status" {{ d.status== '1' ? 'checked' : '' }}>
+</script>
+
+
+<script type="text/html" id="auth-toolbar">
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="grant-menu">授权菜单</a>
+</script>
+
+{include file="common/layui" /}
